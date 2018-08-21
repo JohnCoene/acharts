@@ -1,0 +1,12 @@
+Package: acharts
+Title: Virtual Reality Charts
+Version: 0.0.0.9000
+Authors@R: person("John", "Coene", email = "jcoenep@gmail.com", role = c("aut", "cre"))
+Description: Virtual reality charts.
+Depends: R (>= 3.4.2)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: aframer, dplyr, glue, htmltools
+Remotes: JohnCoene/aframer
+RoxygenNote: 6.1.0
