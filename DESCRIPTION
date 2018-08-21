@@ -10,3 +10,5 @@ LazyData: true
 Imports: aframer, dplyr, glue, htmltools
 Remotes: JohnCoene/aframer
 RoxygenNote: 6.1.0
+URL: http://acharts.john-coene.com/
+BugReports: https://github.com/JohnCoene/acharts/issues
