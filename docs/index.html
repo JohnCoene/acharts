@@ -97,63 +97,74 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
-devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"JohnCoene/acharts"</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"JohnCoene/acharts"</span>)</a></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>Scatter and bar example, first generate somewhat random data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(aframer)
-<span class="kw">library</span>(acharts)
-
-COL &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">5</span>))
-HEIGHT &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">10</span>)
-
-scatter &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">x =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">5</span>),
-  <span class="dt">y =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">5</span>, <span class="dv">10</span>),
-  <span class="dt">z =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">20</span>),
-  <span class="dt">size =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="fl">.1</span>, <span class="fl">.4</span>),
-  <span class="dt">color =</span> COL
-)
-
-bar &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">x =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">5</span>),
-  <span class="dt">y =</span> HEIGHT <span class="op">-</span><span class="st"> </span>(HEIGHT<span class="op">/</span><span class="dv">2</span>),
-  <span class="dt">z =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">20</span>),
-  <span class="dt">height =</span> HEIGHT,
-  <span class="dt">color =</span> COL
-)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(aframer)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(acharts)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">COL &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">HEIGHT &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">scatter &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">  <span class="dt">x =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="dt">y =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">5</span>, <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">  <span class="dt">z =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">20</span>),</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">  <span class="dt">size =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="fl">.1</span>, <span class="fl">.4</span>),</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">  <span class="dt">color =</span> COL</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">)</a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">bar &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">  <span class="dt">x =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">  <span class="dt">y =</span> HEIGHT <span class="op">-</span><span class="st"> </span>(HEIGHT<span class="op">/</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">  <span class="dt">z =</span> <span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">20</span>),</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">  <span class="dt">height =</span> HEIGHT,</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">  <span class="dt">color =</span> COL</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">)</a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23">labels &lt;-<span class="st"> </span>scatter</a>
+<a class="sourceLine" id="cb2-24" data-line-number="24">labels<span class="op">$</span>z &lt;-<span class="st"> </span>labels<span class="op">$</span>z <span class="op">+</span><span class="st"> </span><span class="dv">1</span> <span class="co"># off by a meter</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">labels<span class="op">$</span>text &lt;-<span class="st"> </span>glue<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/glue/topics/glue">glue</a></span>(<span class="st">"height: {round(labels$y)}m"</span>)</a></code></pre></div>
 <p>Then plot.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aCharts<span class="op">$</span>
-<span class="st">    </span><span class="kw">new</span>()<span class="op">$</span>
-<span class="st">    </span><span class="kw">insert</span>(
-        <span class="kw"><a href="http://www.rdocumentation.org/packages/aframer/topics/primitives">a_entity</a></span>(
-            <span class="dt">position =</span> <span class="st">"-10 4 20"</span>, <span class="dt">rotation =</span> <span class="st">"0 -45 0"</span>,
-            <span class="kw"><a href="http://www.rdocumentation.org/packages/aframer/topics/primitives">a_camera</a></span>()
-        )
-    )<span class="op">$</span>
-<span class="st">    </span><span class="kw">scatter</span>( 
-        <span class="dt">data =</span> scatter, 
-        <span class="dt">x =</span> x, 
-        <span class="dt">y =</span> y, 
-        <span class="dt">z =</span> z,
-        <span class="dt">size =</span> size,
-        <span class="dt">color =</span> color
-    )<span class="op">$</span>
-<span class="st">    </span><span class="kw">bar</span>(
-        <span class="dt">data =</span> bar,
-        <span class="dt">x =</span> x,
-        <span class="dt">y =</span> y,
-        <span class="dt">z =</span> z,
-        <span class="dt">height =</span> height,
-        <span class="dt">color =</span> color
-    )<span class="op">$</span>
-<span class="st">    </span><span class="kw">plot</span>()<span class="op">$</span>
-<span class="st">    </span><span class="kw">embed</span>()</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">aCharts<span class="op">$</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">    </span><span class="kw">new</span>()<span class="op">$</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">    </span><span class="kw">insert</span>(</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">        <span class="kw">a_entity</span>(</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">            <span class="dt">position =</span> <span class="st">"-10 4 20"</span>, <span class="dt">rotation =</span> <span class="st">"0 -45 0"</span>,</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">            <span class="kw">a_camera</span>()</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">        )</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    )<span class="op">$</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">    </span><span class="kw">scatter</span>( </a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">        <span class="dt">data =</span> scatter, </a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">        <span class="dt">x =</span> x, </a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">        <span class="dt">y =</span> y, </a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="dt">z =</span> z,</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">        <span class="dt">size =</span> size,</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">        <span class="dt">color =</span> color</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">    )<span class="op">$</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="st">    </span><span class="kw">bar</span>(</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">        <span class="dt">data =</span> bar,</a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">        <span class="dt">x =</span> x,</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">        <span class="dt">y =</span> y,</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">        <span class="dt">z =</span> z,</a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">        <span class="dt">height =</span> height,</a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">        <span class="dt">color =</span> color</a>
+<a class="sourceLine" id="cb3-24" data-line-number="24">    )<span class="op">$</span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="st">    </span><span class="kw">labels</span>(</a>
+<a class="sourceLine" id="cb3-26" data-line-number="26">      <span class="dt">data =</span> labels,</a>
+<a class="sourceLine" id="cb3-27" data-line-number="27">      <span class="dt">x =</span> x,</a>
+<a class="sourceLine" id="cb3-28" data-line-number="28">      <span class="dt">y =</span> y,</a>
+<a class="sourceLine" id="cb3-29" data-line-number="29">      <span class="dt">z =</span> z,</a>
+<a class="sourceLine" id="cb3-30" data-line-number="30">      <span class="dt">text =</span> text</a>
+<a class="sourceLine" id="cb3-31" data-line-number="31">    )<span class="op">$</span></a>
+<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="st">    </span><span class="kw">plot</span>()<span class="op">$</span></a>
+<a class="sourceLine" id="cb3-33" data-line-number="33"><span class="st">    </span><span class="kw">embed</span>()</a></code></pre></div>
 <div>
-<a-scene style="width:100%;height:400px;" embedded><a-entity position="-10 4 20" rotation="0 -45 0"><a-camera></a-camera></a-entity><a-sphere position="1.94815667904913 9.8417814145796 19.7438408457674" radius="0.134732533129863" color="#FF005C"></a-sphere><a-sphere position="4.19375273492187 8.97470980184153 17.9831470248755" radius="0.195802423753776" color="#D71F75"></a-sphere><a-sphere position="4.38997615873814 6.506941257976 1.69756124750711" radius="0.291415043082088" color="#AF3E8F"></a-sphere><a-sphere position="3.21476567909122 9.36783919110894 15.6337892971933" radius="0.162051561451517" color="#875DA9"></a-sphere><a-sphere position="3.86094023939222 5.82065430702642 3.4127239799127" radius="0.260932001378387" color="#5F7DC2"></a-sphere><a-sphere position="3.74774920754135 7.28247939259745 19.9547662162222" radius="0.329854455846362" color="#379CDC"></a-sphere><a-sphere position="2.99550943262875 5.0755360070616 15.6348976492882" radius="0.218969335802831" color="#0FBBF6"></a-sphere><a-sphere position="4.99099420942366 6.56933109858073 13.993740281323" radius="0.101688301307149" color="#01BFF0"></a-sphere><a-sphere position="3.60910812485963 6.76698575494811 17.4371643131599" radius="0.261776296724565" color="#01B5DA"></a-sphere><a-sphere position="2.59503337182105 5.10427097557113 15.4285212054383" radius="0.339731682161801" color="#01ACC5"></a-sphere><a-sphere position="4.00734733976424 8.07054048520513 17.4377165958285" radius="0.116267274133861" color="#00A2AF"></a-sphere><a-sphere position="4.27990433480591 8.24687271146104 18.5305508589372" radius="0.205880573438481" color="#00999A"></a-sphere><a-sphere position="1.08742912765592 8.55557023081928 18.9843330483418" radius="0.270413115993142" color="#008F84"></a-sphere><a-sphere position="1.759879485704 6.45966354408301 13.0227162775118" radius="0.290021998924203" color="#0B8D72"></a-sphere><a-sphere position="3.30697561334819 6.98627679841593 3.11046081315726" radius="0.354681894509122" color="#2E9A68"></a-sphere><a-sphere position="1.58688356820494 5.16562101314776 2.28730940562673" radius="0.100047807302326" color="#51A75E"></a-sphere><a-sphere position="2.78827780578285 5.74009449919686 12.759816163918" radius="0.126567261922173" color="#74B454"></a-sphere><a-sphere position="4.07325580623001 9.44755566422828 6.7914295066148" radius="0.332215776620433" color="#97C14A"></a-sphere><a-sphere position="1.8868207577616 8.18535149795935 14.5546612075996" radius="0.275676014786586" color="#BACE40"></a-sphere><a-sphere position="2.84758828487247 9.08712108037435 9.15488706692122" radius="0.350399546371773" color="#DDDC37"></a-sphere><a-box height="1.66210710909218" wdith="1" position="1.83076058048755 0.831053554546088 14.5599761651829" color="#FF005C"></a-box><a-box height="4.09177111648023" wdith="1" position="1.22836144920439 2.04588555824012 18.2520247653592" color="#D71F75"></a-box><a-box height="4.32542802905664" wdith="1" position="4.71644063666463 2.16271401452832 8.2092347946018" color="#AF3E8F"></a-box><a-box height="4.69423243287019" wdith="1" position="1.35053627751768 2.3471162164351 16.4019861062989" color="#875DA9"></a-box><a-box height="3.80912787024863" wdith="1" position="2.93401148170233 1.90456393512432 7.43807014962658" color="#5F7DC2"></a-box><a-box height="9.79250528919511" wdith="1" position="4.0504134837538 4.89625264459755 14.6428151370492" color="#379CDC"></a-box><a-box height="3.00222781579942" wdith="1" position="3.24545100796968 1.50111390789971 16.537002598634" color="#0FBBF6"></a-box><a-box height="2.28244811249897" wdith="1" position="1.25253040250391 1.14122405624948 17.9268787489273" color="#01BFF0"></a-box><a-box height="5.42065840912983" wdith="1" position="1.64454472158104 2.71032920456491 4.88978867093101" color="#01B5DA"></a-box><a-box height="2.3178060813807" wdith="1" position="2.36835507582873 1.15890304069035 2.43378026899882" color="#01ACC5"></a-box><a-box height="9.12361031584442" wdith="1" position="2.4486489482224 4.56180515792221 1.02092001750134" color="#00A2AF"></a-box><a-box height="9.92117470083758" wdith="1" position="4.87567501422018 4.96058735041879 13.034127414925" color="#00999A"></a-box><a-box height="2.68301545130089" wdith="1" position="2.60659633483738 1.34150772565044 2.81355600128882" color="#008F84"></a-box><a-box height="1.14008497283794" wdith="1" position="2.60914928186685 0.57004248641897 12.2966935741715" color="#0B8D72"></a-box><a-box height="8.43297462398186" wdith="1" position="3.22610188648105 4.21648731199093 1.51185714686289" color="#2E9A68"></a-box><a-box height="8.23212579637766" wdith="1" position="2.41609936673194 4.11606289818883 4.60551628773101" color="#51A75E"></a-box><a-box height="4.98433937202208" wdith="1" position="1.86494324170053 2.49216968601104 10.558558578603" color="#74B454"></a-box><a-box height="9.25577614619397" wdith="1" position="2.93062495533377 4.62788807309698 4.56672368128784" color="#97C14A"></a-box><a-box height="6.85120782093145" wdith="1" position="1.16369698289782 3.42560391046572 4.70720724295825" color="#BACE40"></a-box><a-box height="1.34077922138385" wdith="1" position="3.64286847785115 0.670389610691927 8.8984302894678" color="#DDDC37"></a-box></a-scene>
+<a-scene style="width:100%;height:400px;" embedded><a-entity position="-10 4 20" rotation="0 -45 0"><a-camera></a-camera></a-entity><a-sphere position="4.50934999343008 7.76088160579093 15.1895066050347" radius="0.161470697727054" color="#FF005C"></a-sphere><a-sphere position="2.2830915665254 8.98788943886757 11.1974627519958" radius="0.291942653921433" color="#D71F75"></a-sphere><a-sphere position="4.11088384781033 9.06486463034526 8.28137224796228" radius="0.337700141151436" color="#AF3E8F"></a-sphere><a-sphere position="2.5574958641082 9.26447532954626 13.5732299420051" radius="0.211756982491352" color="#875DA9"></a-sphere><a-sphere position="3.02151215355843 8.2027711183764 4.615769371856" radius="0.294191189832054" color="#5F7DC2"></a-sphere><a-sphere position="3.83131472859532 7.36472468124703 8.73104248312302" radius="0.196198982628994" color="#379CDC"></a-sphere><a-sphere position="4.48382641095668 5.22567857871763 4.91243496327661" radius="0.330572639242746" color="#0FBBF6"></a-sphere><a-sphere position="1.87562899384648 8.25569484382868 1.64454277488403" radius="0.182298947591335" color="#01BFF0"></a-sphere><a-sphere position="2.40672741550952 9.60788043914363 15.8483580946922" radius="0.206282526277937" color="#01B5DA"></a-sphere><a-sphere position="1.38159206323326 9.22653625137173 11.1401506050024" radius="0.195402516936883" color="#01ACC5"></a-sphere><a-sphere position="3.21230940707028 6.32614558329806 14.8883330821991" radius="0.132085798773915" color="#00A2AF"></a-sphere><a-sphere position="3.76022846531123 9.42456890596077 1.45178605499677" radius="0.238196055567823" color="#00999A"></a-sphere><a-sphere position="3.81830057408661 6.05708110844716 7.09514141781256" radius="0.342108420887962" color="#008F84"></a-sphere><a-sphere position="3.89651055075228 5.53991695865989 7.5540636794176" radius="0.366188624757342" color="#0B8D72"></a-sphere><a-sphere position="3.57538651768118 8.35117704002187 3.92611925373785" radius="0.264831846742891" color="#2E9A68"></a-sphere><a-sphere position="1.4481073031202 7.95310480170883 18.4315968756564" radius="0.318165935599245" color="#51A75E"></a-sphere><a-sphere position="2.97648207750171 9.50620058574714 6.07840695441701" radius="0.130668121250346" color="#74B454"></a-sphere><a-sphere position="4.68760382104665 7.28096989565529 7.03157723671757" radius="0.341632388439029" color="#97C14A"></a-sphere><a-sphere position="1.91977407410741 8.66054033394903 18.0539148664102" radius="0.173245376115665" color="#BACE40"></a-sphere><a-sphere position="3.3457884863019 7.09440089063719 6.79552346933633" radius="0.234491674788296" color="#DDDC37"></a-sphere><a-box height="8.8936537054833" wdith="1" position="3.98660351894796 4.44682685274165 16.9539820961654" color="#FF005C"></a-box><a-box height="1.84003611281514" wdith="1" position="3.53467856999487 0.920018056407571 4.24140991945751" color="#D71F75"></a-box><a-box height="8.19238614360802" wdith="1" position="4.03890293650329 4.09619307180401 11.3452626611106" color="#AF3E8F"></a-box><a-box height="7.06473120301962" wdith="1" position="3.94995189830661 3.53236560150981 5.54871760774404" color="#875DA9"></a-box><a-box height="5.33437446295284" wdith="1" position="2.52509912569076 2.66718723147642 11.2647164957598" color="#5F7DC2"></a-box><a-box height="8.15961179579608" wdith="1" position="1.61968690901995 4.07980589789804 3.1876065984834" color="#379CDC"></a-box><a-box height="1.26084412680939" wdith="1" position="4.63027205690742 0.630422063404694 18.8433083784766" color="#0FBBF6"></a-box><a-box height="6.12200152128935" wdith="1" position="3.01041713263839 3.06100076064467 12.1144270575605" color="#01BFF0"></a-box><a-box height="6.07415180723183" wdith="1" position="3.68641022313386 3.03707590361591 9.13661604560912" color="#01B5DA"></a-box><a-box height="5.63255128264427" wdith="1" position="2.37386233173311 2.81627564132214 7.40984946256503" color="#01ACC5"></a-box><a-box height="6.42086932621896" wdith="1" position="3.29602373950183 3.21043466310948 18.1428169591818" color="#00A2AF"></a-box><a-box height="6.57488868292421" wdith="1" position="3.90576617792249 3.28744434146211 14.2142435738351" color="#00999A"></a-box><a-box height="2.16325173713267" wdith="1" position="2.5999829955399 1.08162586856633 8.80875761806965" color="#008F84"></a-box><a-box height="5.81296605290845" wdith="1" position="3.92497389856726 2.90648302645423 6.88129224581644" color="#0B8D72"></a-box><a-box height="9.00655428878963" wdith="1" position="2.05247860681266 4.50327714439481 3.7411547829397" color="#2E9A68"></a-box><a-box height="9.25816443329677" wdith="1" position="2.64454332925379 4.62908221664838 19.7448145644739" color="#51A75E"></a-box><a-box height="4.54381149844266" wdith="1" position="2.88788551557809 2.27190574922133 4.3025385607034" color="#74B454"></a-box><a-box height="7.66113768192008" wdith="1" position="3.66925259120762 3.83056884096004 15.7827474055812" color="#97C14A"></a-box><a-box height="9.09094769251533" wdith="1" position="1.52527025900781 4.54547384625766 1.69196798093617" color="#BACE40"></a-box><a-box height="1.05255576292984" wdith="1" position="3.95707739330828 0.526277881464921 17.1307754297741" color="#DDDC37"></a-box><a-text value="height: 8m" color="#000" position="4.50934999343008 7.76088160579093 16.1895066050347"></a-text><a-text value="height: 9m" color="#000" position="2.2830915665254 8.98788943886757 12.1974627519958"></a-text><a-text value="height: 9m" color="#000" position="4.11088384781033 9.06486463034526 9.28137224796228"></a-text><a-text value="height: 9m" color="#000" position="2.5574958641082 9.26447532954626 14.5732299420051"></a-text><a-text value="height: 8m" color="#000" position="3.02151215355843 8.2027711183764 5.615769371856"></a-text><a-text value="height: 7m" color="#000" position="3.83131472859532 7.36472468124703 9.73104248312302"></a-text><a-text value="height: 5m" color="#000" position="4.48382641095668 5.22567857871763 5.91243496327661"></a-text><a-text value="height: 8m" color="#000" position="1.87562899384648 8.25569484382868 2.64454277488403"></a-text><a-text value="height: 10m" color="#000" position="2.40672741550952 9.60788043914363 16.8483580946922"></a-text><a-text value="height: 9m" color="#000" position="1.38159206323326 9.22653625137173 12.1401506050024"></a-text><a-text value="height: 6m" color="#000" position="3.21230940707028 6.32614558329806 15.8883330821991"></a-text><a-text value="height: 9m" color="#000" position="3.76022846531123 9.42456890596077 2.45178605499677"></a-text><a-text value="height: 6m" color="#000" position="3.81830057408661 6.05708110844716 8.09514141781256"></a-text><a-text value="height: 6m" color="#000" position="3.89651055075228 5.53991695865989 8.5540636794176"></a-text><a-text value="height: 8m" color="#000" position="3.57538651768118 8.35117704002187 4.92611925373785"></a-text><a-text value="height: 8m" color="#000" position="1.4481073031202 7.95310480170883 19.4315968756564"></a-text><a-text value="height: 10m" color="#000" position="2.97648207750171 9.50620058574714 7.07840695441701"></a-text><a-text value="height: 7m" color="#000" position="4.68760382104665 7.28096989565529 8.03157723671757"></a-text><a-text value="height: 9m" color="#000" position="1.91977407410741 8.66054033394903 19.0539148664102"></a-text><a-text value="height: 7m" color="#000" position="3.3457884863019 7.09440089063719 7.79552346933633"></a-text></a-scene>
 </div>
 </div>
 </div>
