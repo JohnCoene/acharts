@@ -128,6 +128,36 @@ aCharts <- R6::R6Class(
       invisible(self)
 
     },
+    labels = function(x, y, z, label){
+      if(missing(data) || missing(x) || missing(y) || missing(z) || missing(label))
+        stop("must pass data, x, y, z, or label", call. = FALSE)
+
+      x <- rlang::enquo(x)
+      y <- rlang::enquo(y)
+      z <- rlang::enquo(z)
+      label <- rlang::enquo(label)
+
+      cols <- list(
+        x = x,
+        y = y,
+        z = z,
+        label = label
+      )
+
+      sc <- private$graph
+      # plot
+      for(i in 1:nrow(data)){
+        txt <- aframer::a_text(
+          value = data$label[i],
+          position = glue::glue("{data$x[i]} {data$y[i]} {data$z[i]}")
+        )
+
+        sc <- htmltools::tagAppendChild(sc, txt)
+      }
+
+      private$graph <- sc
+      invisible(self)
+    },
     plot = function(...){
       private$scene <- aframer::a_scene(..., private$to_insert, private$graph)
       invisible(self)
