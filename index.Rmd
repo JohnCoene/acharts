@@ -50,6 +50,10 @@ bar <- data.frame(
   height = HEIGHT,
   color = COL
 )
+
+labels <- scatter
+labels$z <- labels$z + 1 # off by a meter
+labels$text <- glue::glue("height: {round(labels$y)}m")
 ```
 
 Then plot.
@@ -78,6 +82,13 @@ aCharts$
         z = z,
         height = height,
         color = color
+    )$
+    labels(
+      data = labels,
+      x = x,
+      y = y,
+      z = z,
+      text = text
     )$
     plot()$
     embed()

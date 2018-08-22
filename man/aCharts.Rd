@@ -14,14 +14,23 @@ Create virtual reality charts.
 \section{Methods}{
 
 \itemize{
-  \item{\code{scatter} scatter plot.}
-  \item{\code{bar} bar chart.}
+  \item{\code{scatter} Scatter plot.}
+  \item{\code{bar} Bar chart.}
+  \item{\code{labels} Add labels.}
   \item{\code{plot} Plot chart}
   \item{\code{get} Get chart}
   \item{\code{browse} Browse chart}
   \item{\code{embed} Embed chart}
   \item{\code{insert} Insert \code{aframer} components in the \code{a_scene}.}
 }
+}
+
+\section{Arguments}{
+
+The core functions (\code{scatter}, \code{bar} and \code{labels}) all take,
+\code{data}, \code{x}, \code{y} and \code{z} as first and required arguments.
+\code{bar} also requires \code{height} and \code{labels} requires \code{text}.
+A \code{colors} palette can be passed when initialising the class (\code{new}).
 }
 
 \examples{

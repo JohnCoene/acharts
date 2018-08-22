@@ -4,14 +4,21 @@
 #'
 #' @section Methods:
 #' \itemize{
-#'   \item{\code{scatter} scatter plot.}
-#'   \item{\code{bar} bar chart.}
+#'   \item{\code{scatter} Scatter plot.}
+#'   \item{\code{bar} Bar chart.}
+#'   \item{\code{labels} Add labels.}
 #'   \item{\code{plot} Plot chart}
 #'   \item{\code{get} Get chart}
 #'   \item{\code{browse} Browse chart}
 #'   \item{\code{embed} Embed chart}
 #'   \item{\code{insert} Insert \code{aframer} components in the \code{a_scene}.}
 #' }
+#'
+#' @section Arguments:
+#' The core functions (\code{scatter}, \code{bar} and \code{labels}) all take,
+#' \code{data}, \code{x}, \code{y} and \code{z} as first and required arguments.
+#' \code{bar} also requires \code{height} and \code{labels} requires \code{text}.
+#' A \code{colors} palette can be passed when initialising the class (\code{new}).
 #'
 #' @examples
 #' aCharts$
@@ -128,27 +135,39 @@ aCharts <- R6::R6Class(
       invisible(self)
 
     },
-    labels = function(x, y, z, label){
-      if(missing(data) || missing(x) || missing(y) || missing(z) || missing(label))
-        stop("must pass data, x, y, z, or label", call. = FALSE)
+    labels = function(data, x, y, z, text, color = NULL){
+      if(missing(data) || missing(x) || missing(y) || missing(z) || missing(text))
+        stop("must pass data, x, y, z, or text", call. = FALSE)
 
       x <- rlang::enquo(x)
       y <- rlang::enquo(y)
       z <- rlang::enquo(z)
-      label <- rlang::enquo(label)
+      text <- rlang::enquo(text)
+      color <- rlang::enquo(color)
 
       cols <- list(
         x = x,
         y = y,
         z = z,
-        label = label
+        text = text
       )
+
+      if(!rlang::quo_is_null(color))
+        cols <- append(cols, list(color = color))
+
+      data <- dplyr::select(data, !!!cols)
+
+      if("color" %in% names(data))
+        data$color <- colorRampPalette(private$colors)(nrow(data))
+      else
+        data$color <- "#000"
 
       sc <- private$graph
       # plot
       for(i in 1:nrow(data)){
         txt <- aframer::a_text(
-          value = data$label[i],
+          value = as.character(data$text[i]),
+          color = data$color[i],
           position = glue::glue("{data$x[i]} {data$y[i]} {data$z[i]}")
         )
 
