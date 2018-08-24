@@ -51,6 +51,19 @@ bar <- data.frame(
   color = COL
 )
 
+f <- function(){
+    runif(20, 1, 10)
+}
+
+line <- data.frame(
+    src.x = f(),
+    src.y = f(),
+    src.z = f(),
+    tgt.x = f(),
+    tgt.y = f(),
+    tgt.z = f()
+)
+
 labels <- scatter
 labels$z <- labels$z + 1 # off by a meter
 labels$text <- glue::glue("height: {round(labels$y)}m")
@@ -82,6 +95,15 @@ aCharts$
         z = z,
         height = height,
         color = color
+    )$
+    line(
+      line, 
+      src.x, 
+      src.y, 
+      src.z, 
+      tgt.x,
+      tgt.y,
+      tgt.z
     )$
     labels(
       data = labels,

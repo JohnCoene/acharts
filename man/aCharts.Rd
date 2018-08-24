@@ -16,6 +16,7 @@ Create virtual reality charts.
 \itemize{
   \item{\code{scatter} Scatter plot.}
   \item{\code{bar} Bar chart.}
+  \item{\code{line} Line chart.}
   \item{\code{labels} Add labels.}
   \item{\code{plot} Plot chart}
   \item{\code{get} Get chart}

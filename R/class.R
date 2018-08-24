@@ -6,6 +6,7 @@
 #' \itemize{
 #'   \item{\code{scatter} Scatter plot.}
 #'   \item{\code{bar} Bar chart.}
+#'   \item{\code{line} Line chart.}
 #'   \item{\code{labels} Add labels.}
 #'   \item{\code{plot} Plot chart}
 #'   \item{\code{get} Get chart}
@@ -129,6 +130,55 @@ aCharts <- R6::R6Class(
           bar <- htmltools::tagAppendAttributes(bar, color = data$color[i])
 
         sc <- htmltools::tagAppendChild(sc, bar)
+      }
+
+      private$graph <- sc
+      invisible(self)
+
+    },
+    line = function(data, src.x, src.y, src.z, tgt.x, tgt.y, tgt.z, color = NULL, width = 1){
+
+      if(missing(data) || missing(src.x) || missing(src.y) || missing(src.z) ||
+         missing(tgt.x) || missing(tgt.y) || missing(tgt.z))
+        stop("must pass data, src.x, src.y, src.z, tgt.x, tgt.y, and tgt.z", call. = FALSE)
+
+      src.x <- rlang::enquo(src.x)
+      src.y <- rlang::enquo(src.y)
+      src.z <- rlang::enquo(src.z)
+      tgt.x <- rlang::enquo(tgt.x)
+      tgt.y <- rlang::enquo(tgt.y)
+      tgt.z <- rlang::enquo(tgt.z)
+      color <- rlang::enquo(color)
+
+      cols <- list(
+        src.x = src.x,
+        src.y = src.y,
+        src.z = src.z,
+        tgt.x = tgt.x,
+        tgt.y = tgt.y,
+        tgt.z = tgt.z
+      )
+
+      if(!rlang::quo_is_null(color))
+        cols <- append(cols, list(color = color))
+
+      data <- dplyr::select(data, !!!cols)
+
+      if("color" %in% names(data))
+        data$color <- colorRampPalette(private$colors)(nrow(data))
+
+      sc <- private$graph
+      # plot
+      for(i in 1:nrow(data)){
+        line <- aframer::a_line(
+          start = aframer::xyz_aframe(data$src.x[i], data$src.y[i], data$src.z[i]),
+          end = aframer::xyz_aframe(data$tgt.x[i], data$tgt.y[i], data$tgt.z[i])
+        )
+
+        if(length(data$color))
+          line <- htmltools::tagAppendAttributes(line, color = data$color[i])
+
+        sc <- htmltools::tagAppendChild(sc, line)
       }
 
       private$graph <- sc
