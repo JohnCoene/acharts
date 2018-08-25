@@ -235,7 +235,9 @@ aCharts <- R6::R6Class(
       invisible(self)
     },
     plot = function(...){
-      private$scene <- aframer::a_scene(..., private$to_insert, private$graph)
+      private$scene <- aframer::a_scene(
+        aframer::a_dependency(), ..., private$to_insert, private$graph
+      )
       invisible(self)
     },
     get = function(){
