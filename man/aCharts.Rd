@@ -28,10 +28,19 @@ Create virtual reality charts.
 
 \section{Arguments}{
 
-The core functions (\code{scatter}, \code{bar} and \code{labels}) all take,
-\code{data}, \code{x}, \code{y} and \code{z} as first and required arguments.
-\code{bar} also requires \code{height} and \code{labels} requires \code{text}.
-A \code{colors} palette can be passed when initialising the class (\code{new}).
+
+\itemize{
+  \item{\code{scatter}, required: \code{data}, \code{x}, \code{y}, \code{z}, optional: \code{size}, \code{color}}
+  \item{\code{bar}, required: \code{data}, \code{x}, \code{y}, \code{z}, \code{height}, optional: \code{color}, \code{width}}
+  \item{\code{line}, required: \code{data}, \code{src.x}, \code{src.y}, \code{src.z}, \code{tgt.x}, \code{tgt.y}, \code{tgt.z}, optional: \code{color}, \code{width}}
+  \item{\code{labels}, required: \code{data}, \code{x}, \code{y}, \code{z}, \code{text}, optional: \code{color}}
+}
+}
+
+\section{Details}{
+
+
+\code{insert} is used to "insert" aframe tags in the scene (\link[aframer]{a_scene})
 }
 
 \examples{

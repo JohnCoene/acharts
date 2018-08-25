@@ -142,14 +142,31 @@
 
     
     <ul>
-<li><p><code>scatter</code> scatter plot.</p></li>
-<li><p><code>bar</code> bar chart.</p></li>
+<li><p><code>scatter</code> Scatter plot.</p></li>
+<li><p><code>bar</code> Bar chart.</p></li>
+<li><p><code>line</code> Line chart.</p></li>
+<li><p><code>labels</code> Add labels.</p></li>
 <li><p><code>plot</code> Plot chart</p></li>
 <li><p><code>get</code> Get chart</p></li>
 <li><p><code>browse</code> Browse chart</p></li>
 <li><p><code>embed</code> Embed chart</p></li>
 <li><p><code>insert</code> Insert <code>aframer</code> components in the <code>a_scene</code>.</p></li>
 </ul>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+
+    
+    <ul>
+<li><p><code>scatter</code>, required: <code>data</code>, <code>x</code>, <code>y</code>, <code>z</code>, optional: <code>size</code>, <code>color</code></p></li>
+<li><p><code>bar</code>, required: <code>data</code>, <code>x</code>, <code>y</code>, <code>z</code>, <code>height</code>, optional: <code>color</code>, <code>width</code></p></li>
+<li><p><code>line</code>, required: <code>data</code>, <code>src.x</code>, <code>src.y</code>, <code>src.z</code>, <code>tgt.x</code>, <code>tgt.y</code>, <code>tgt.z</code>, optional: <code>color</code>, <code>width</code></p></li>
+<li><p><code>labels</code>, required: <code>data</code>, <code>x</code>, <code>y</code>, <code>z</code>, <code>text</code>, optional: <code>color</code></p></li>
+</ul>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    
+    <p><code>insert</code> is used to "insert" aframe tags in the scene (<a href='http://www.rdocumentation.org/packages/aframer/topics/scene'>a_scene</a>)</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -172,6 +189,10 @@
       <li><a href="#format">Format</a></li>
 
       <li><a href="#methods">Methods</a></li>
+
+      <li><a href="#arguments">Arguments</a></li>
+
+      <li><a href="#details">Details</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
